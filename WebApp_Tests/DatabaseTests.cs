@@ -21,4 +21,21 @@ public class DatabaseTests
         // Assert
         Assert.Equal(expected, result);
     }
+    [Fact]
+    public void ConnectionString_CosmosDb_Should_be_a_ConnectionString_To_AzureCosmosDB()
+    {
+        //Arrange
+        var expected = "";
+
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        // Act
+        var result = configuration.GetConnectionString("CosmosDb");
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
 }
